@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlinkPay - Component Preview</title>
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/utilities.css">
+  <!-- Component-specific styles -->
+  <link rel="stylesheet" href="../components/hero/styles.css">
+  <!-- Add more component styles as needed -->
+  <style>
+    /* Preview page styles */
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .component-preview {
+      padding: var(--space-xl);
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .component-preview__header {
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px dashed var(--color-border);
+    }
+    
+    .component-preview__title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--space-xs);
+    }
+    
+    .component-preview__description {
+      color: var(--color-text-light);
+      font-size: var(--font-size-sm);
+    }
+  </style>
+</head>
+<body>
+  <header class="component-preview">
+    <div class="component-preview__header">
+      <h1 class="component-preview__title">BlinkPay Component Library</h1>
+      <p class="component-preview__description">Preview all components before exporting to Webflow</p>
+    </div>
+  </header>
+
+  <!-- Hero Component Preview -->
+  <section class="component-preview">
+    <div class="component-preview__header">
+      <h2 class="component-preview__title">Hero Component</h2>
+      <p class="component-preview__description">Main banner shown at the top of the homepage</p>
+    </div>
+    
+    <!-- Include Hero Component -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__content">
+          <h1 class="hero__title">Fast, Secure Payments for Your Business</h1>
+          <p class="hero__subtitle">BlinkPay helps businesses process payments quickly and securely, with low fees and instant settlements.</p>
+          <div class="hero__buttons">
+            <a href="#" class="hero__button hero__button--primary">Get Started</a>
+            <a href="#" class="hero__button hero__button--secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="hero__image">
+          <img src="../assets/images/placeholder-hero.jpg" alt="BlinkPay Dashboard" class="hero__img">
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Add more component previews as they are developed -->
+  
+  <script>
+    // Any JavaScript needed for component previews
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Component preview page loaded');
+    });
+  </script>
+</body>
+</html> 

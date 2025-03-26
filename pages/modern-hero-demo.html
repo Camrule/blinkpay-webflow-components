@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlinkPay - Modern Hero Demo</title>
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/utilities.css">
+  <link rel="stylesheet" href="../components/modern-hero/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <!-- GSAP from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Modern Hero Component -->
+  <section class="modern-hero">
+    <div class="container">
+      <div class="modern-hero__content">
+        <div class="modern-hero__tag">
+          <span>Revolutionary Payment</span>
+        </div>
+        <h1 class="modern-hero__title">A Better Way to Make Digital Payments</h1>
+        <p class="modern-hero__subtitle">Tired of high merchant service fees or clunky payment systems? BlinkPay offers a simple, secure bank payment solution built for Kiwi businesses.</p>
+        <div class="modern-hero__buttons">
+          <a href="#" class="modern-hero__button modern-hero__button--primary">Get Started</a>
+          <a href="#" class="modern-hero__button modern-hero__button--secondary">
+            <span>Talk to our team</span>
+            <svg class="modern-hero__arrow" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.4 5.5L7.4 0.5M12.4 5.5L7.4 10.5M12.4 5.5H0.4" stroke="#2563EB" stroke-width="1"/>
+            </svg>
+          </a>
+        </div>
+        <div class="modern-hero__stats">
+          <div class="modern-hero__stat">
+            <div class="modern-hero__stat-value">$100M+</div>
+            <div class="modern-hero__stat-label">Payments Processed</div>
+          </div>
+          <div class="modern-hero__stat">
+            <div class="modern-hero__stat-value">0</div>
+            <div class="modern-hero__stat-label">Fraud cases</div>
+          </div>
+          <div class="modern-hero__stat">
+            <div class="modern-hero__stat-value">99.99%</div>
+            <div class="modern-hero__stat-label">Uptime guaranteed</div>
+          </div>
+        </div>
+      </div>
+      <div class="modern-hero__image">
+        <img src="https://placehold.co/512x341" alt="BlinkPay in action" class="modern-hero__img">
+        <div class="modern-hero__badge modern-hero__badge--fees">
+          <div class="modern-hero__badge-icon">★</div>
+          <div class="modern-hero__badge-title">50% Lower Fees</div>
+          <div class="modern-hero__badge-text">Switched from traditional payment providers and saved thousands monthly</div>
+        </div>
+        <div class="modern-hero__badge modern-hero__badge--integration">
+          <div class="modern-hero__badge-icon">⚡</div>
+          <div class="modern-hero__badge-title">Fast Integration</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional page content would go here -->
+  <div style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: #f9fafb;">
+    <p style="text-align: center; color: #6b7280;">Additional page content would appear here</p>
+  </div>
+
+  <!-- GSAP Animation Script -->
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Create timeline for sequenced animations
+      const tl = gsap.timeline();
+      
+      // Initially set opacity to 0 for animated elements
+      gsap.set('.modern-hero__tag, .modern-hero__title, .modern-hero__subtitle, .modern-hero__buttons, .modern-hero__stats', {
+        opacity: 0,
+        y: 20
+      });
+      
+      gsap.set('.modern-hero__image', {
+        opacity: 0,
+        x: 30
+      });
+      
+      gsap.set('.modern-hero__badge', {
+        opacity: 0,
+        scale: 0.8
+      });
+      
+      // Add animations to timeline
+      tl.to('.modern-hero__tag', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      })
+      .to('.modern-hero__title', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3')
+      .to('.modern-hero__subtitle', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3')
+      .to('.modern-hero__buttons', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3')
+      .to('.modern-hero__stats', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3')
+      .to('.modern-hero__image', {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, '-=0.5')
+      .to('.modern-hero__badge', {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: 'back.out(1.7)'
+      }, '-=0.4');
+      
+      // Add hover animation to buttons
+      gsap.utils.toArray('.modern-hero__button').forEach(button => {
+        button.addEventListener('mouseenter', function() {
+          gsap.to(this, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        });
+        
+        button.addEventListener('mouseleave', function() {
+          gsap.to(this, {
+            scale: 1,
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        });
+      });
+      
+      // Add hover animation to arrow in secondary button
+      const secondaryButton = document.querySelector('.modern-hero__button--secondary');
+      const arrow = secondaryButton.querySelector('.modern-hero__arrow');
+      
+      secondaryButton.addEventListener('mouseenter', function() {
+        gsap.to(arrow, {
+          x: 5,
+          duration: 0.3,
+          ease: 'power1.inOut'
+        });
+      });
+      
+      secondaryButton.addEventListener('mouseleave', function() {
+        gsap.to(arrow, {
+          x: 0,
+          duration: 0.3,
+          ease: 'power1.inOut'
+        });
+      });
+    });
+  </script>
+</body>
+</html> 

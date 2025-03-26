@@ -1,0 +1,30 @@
+{
+  "name": "blinkpay-webflow-components",
+  "version": "1.0.0",
+  "description": "Component library for BlinkPay's Webflow website",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --port=8080 --open=./pages/index.html",
+    "export": "node scripts/export.js",
+    "export:hero": "node scripts/export.js hero",
+    "export:navigation": "node scripts/export.js navigation",
+    "export:features": "node scripts/export.js features",
+    "export:testimonials": "node scripts/export.js testimonials",
+    "export:pricing": "node scripts/export.js pricing",
+    "export:contact": "node scripts/export.js contact",
+    "export:footer": "node scripts/export.js footer",
+    "export:all": "npm run export:hero && npm run export:navigation && npm run export:features && npm run export:testimonials && npm run export:pricing && npm run export:contact && npm run export:footer"
+  },
+  "keywords": [
+    "webflow",
+    "components",
+    "html",
+    "css"
+  ],
+  "author": "BlinkPay",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+} 

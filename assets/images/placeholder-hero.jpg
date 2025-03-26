@@ -1,0 +1,6 @@
+THIS IS A PLACEHOLDER TEXT FILE
+
+In a real project, you would place an actual JPG image here.
+For Webflow import, you'll need to:
+1. Upload the real image to Webflow's Asset Manager
+2. Update the image path in the component HTML to use Webflow's CDN URL 

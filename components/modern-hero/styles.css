@@ -1,0 +1,313 @@
+/* Modern Hero Component Styles */
+
+.modern-hero {
+  padding: var(--space-xxl) 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxl);
+  align-items: center;
+  position: relative;
+}
+
+/* Content Section */
+.modern-hero__content {
+  max-width: 640px;
+}
+
+.modern-hero__tag {
+  display: inline-flex;
+  padding: 10px 18px;
+  margin-bottom: var(--space-lg);
+  background: linear-gradient(90deg, rgba(255, 230.56, 230.56, 0.40) 0%, rgba(187, 226.67, 255, 0.40) 100%);
+  border-radius: 9296.61px;
+}
+
+.modern-hero__tag span {
+  color: #2563EB;
+  font-size: 13.02px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+.modern-hero__title {
+  color: #111827;
+  font-size: 45.73px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 53px;
+  margin-bottom: var(--space-lg);
+  word-wrap: break-word;
+}
+
+.modern-hero__subtitle {
+  color: #4B5563;
+  font-size: 18.23px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 31.90px;
+  margin-bottom: var(--space-xl);
+  word-wrap: break-word;
+  max-width: 566px;
+}
+
+/* Buttons */
+.modern-hero__buttons {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xxl);
+}
+
+.modern-hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 16px;
+  border-radius: 7.17px;
+  font-size: 14.35px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  height: 43px;
+}
+
+.modern-hero__button--primary {
+  background-color: #2563EB;
+  color: white;
+  border: none;
+  min-width: 140px;
+}
+
+.modern-hero__button--primary:hover {
+  background-color: #1d4ed8;
+}
+
+.modern-hero__button--secondary {
+  background-color: transparent;
+  color: #2563EB;
+  border: 1px solid #2563EB;
+  min-width: 174px;
+  position: relative;
+  justify-content: flex-start;
+  padding-left: 24px;
+}
+
+.modern-hero__button--secondary:hover {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.modern-hero__arrow {
+  position: absolute;
+  right: 16px;
+}
+
+/* Stats Section */
+.modern-hero__stats {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.modern-hero__stat {
+  text-align: center;
+}
+
+.modern-hero__stat-value {
+  color: #0C0C0C;
+  font-size: 26.61px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 26.61px;
+  margin-bottom: 15px;
+}
+
+.modern-hero__stat-label {
+  color: #4B5563;
+  font-size: 14.19px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 14.19px;
+}
+
+/* Image Section */
+.modern-hero__image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modern-hero__img {
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  width: 512px;
+  height: 341px;
+  object-fit: cover;
+}
+
+/* Badges */
+.modern-hero__badge {
+  position: absolute;
+  border-radius: 8.70px;
+  background: white;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.10);
+  padding: 16px 13px;
+}
+
+.modern-hero__badge--fees {
+  top: 0;
+  right: 0;
+  width: 174px;
+  background: linear-gradient(90deg, rgba(255, 230.56, 230.56, 0.10) 0%, rgba(187, 226.67, 255, 0.10) 100%), white;
+}
+
+.modern-hero__badge--integration {
+  bottom: 20px;
+  left: 84px;
+  width: 123px;
+  height: 40px;
+  background: #2563EB;
+  display: flex;
+  align-items: center;
+  padding: 11px;
+}
+
+.modern-hero__badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.modern-hero__badge--fees .modern-hero__badge-icon {
+  color: #FACC15;
+  font-size: 14px;
+}
+
+.modern-hero__badge--integration .modern-hero__badge-icon {
+  color: #FDE047;
+  font-size: 11px;
+}
+
+.modern-hero__badge-title {
+  font-family: 'Inter', sans-serif;
+}
+
+.modern-hero__badge--fees .modern-hero__badge-title {
+  color: #111827;
+  font-size: 10.88px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.modern-hero__badge--integration .modern-hero__badge-title {
+  color: white;
+  font-size: 11.31px;
+  font-weight: 600;
+  line-height: 11.31px;
+}
+
+.modern-hero__badge-text {
+  color: #4B5563;
+  font-size: 8.70px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 12.35px;
+}
+
+/* Display badges as flex containers */
+.modern-hero__badge--fees {
+  display: flex;
+  flex-direction: column;
+}
+
+.modern-hero__badge--integration {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .modern-hero__title {
+    font-size: 38px;
+    line-height: 46px;
+  }
+  
+  .modern-hero__subtitle {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  
+  .modern-hero__badge--fees {
+    width: 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  .modern-hero .container {
+    gap: var(--space-xl);
+  }
+  
+  .modern-hero__image {
+    transform: scale(0.9);
+  }
+  
+  .modern-hero__badge--fees {
+    top: -10px;
+    right: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .modern-hero__content {
+    max-width: 100%;
+    order: 1;
+  }
+  
+  .modern-hero__image {
+    order: 0;
+    margin-bottom: var(--space-lg);
+    width: 100%;
+  }
+  
+  .modern-hero__tag {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .modern-hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .modern-hero__buttons {
+    justify-content: center;
+  }
+  
+  .modern-hero__stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .modern-hero__badge--fees {
+    width: 150px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .modern-hero__badge--integration {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+} 
