@@ -1,7 +1,17 @@
 <!-- Modern Hero Component for Webflow Import -->
 <!-- Copy this entire code block into a custom code embed in Webflow -->
 
-<!-- GSAP is now loaded globally in Webflow project settings -->
+<!-- Note: Ensure GSAP and BlinkAnimations are loaded in your Webflow project header -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize hero animations using BlinkAnimations library
+    BlinkAnimations.initHero('.modern-hero');
+    BlinkAnimations.initButtonHovers('.modern-hero');
+  });
+</script>
+
+<!-- Note: For Webflow, you'll need to add the Inter font to your project settings -->
+<!-- Font Link: https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap --> 
 
 <section class="modern-hero" style="padding: 3rem 0; background-color: white; position: relative; overflow: hidden;">
   <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; position: relative; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
@@ -154,15 +164,3 @@
     }
   }
 </style>
-
-<!-- GSAP Animation Script using BlinkAnimations library -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize hero animations using your custom library
-    BlinkAnimations.initHero('.modern-hero');
-    BlinkAnimations.initButtonHovers('.modern-hero');  // Re-enabling button animations
-  });
-</script>
-
-<!-- Note: For Webflow, you'll need to add the Inter font to your project settings -->
-<!-- Font Link: https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap --> 
