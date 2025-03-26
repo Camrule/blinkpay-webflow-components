@@ -13,32 +13,33 @@ This document outlines the plan for pre-building HTML/CSS components in a local 
 
 ### File Structure
 ```
-blink-webflow-components/
+blinkpay-webflow-components/
 ├── components/           # Individual reusable components
 │   ├── navigation/
+│   ├── modern-hero/     # Modern hero component
 │   ├── hero/
 │   ├── features/
 │   ├── testimonials/
 │   ├── pricing/
 │   ├── contact/
 │   └── footer/
-├── styles/               # Global styles and variables
+├── styles/              # Global styles and variables
 │   ├── global.css       
-│   ├── variables.css     # Colors, spacing, typography variables
-│   └── utilities.css     # Utility classes
-├── assets/               # Images, icons, and other assets
+│   ├── variables.css    # Colors, spacing, typography variables
+│   └── utilities.css    # Utility classes
+├── assets/             # Images, icons, and other assets
 │   ├── images/
 │   ├── icons/
 │   └── fonts/
-├── pages/                # Full page assemblies for testing
-│   ├── index.html        # Homepage
-│   └── other-pages/
-├── exported/             # Export-ready components for Webflow
-├── scripts/              # Build scripts and utilities
-│   └── export.js         # Script to prepare components for Webflow
-└── docs/                 # Documentation
-    ├── PRD.md            # This document
-    └── component-docs/   # Documentation for specific components
+├── pages/              # Full page assemblies for testing
+├── exported/           # Export-ready components for Webflow
+├── scripts/            # Build scripts and utilities
+├── docs/              # Documentation
+│   ├── PRD.md         # This document
+│   └── component-docs/ # Documentation for specific components
+├── blink-animations.js # Animation utilities library
+├── package.json       # Project dependencies and scripts
+└── README.md         # Project documentation
 ```
 
 ### Development Workflow

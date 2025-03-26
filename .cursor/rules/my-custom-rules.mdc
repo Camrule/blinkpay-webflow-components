@@ -24,10 +24,11 @@ This document outlines the plan for pre-building HTML/CSS components in a local 
 
 ### File Structure
 ```
-blink-webflow-components/
+blinkpay-webflow-components/
 ├── components/           # Individual reusable components
 │   ├── navigation/
 │   ├── hero/
+│   ├── modern-hero/      # Modern hero component with animation
 │   ├── features/
 │   ├── testimonials/
 │   ├── pricing/
@@ -47,8 +48,11 @@ blink-webflow-components/
 ├── exported/             # Export-ready components for Webflow
 ├── scripts/              # Build scripts and utilities
 │   └── export.js         # Script to prepare components for Webflow
+├── blink-animations.js   # Animation utilities library (root level)
+├── package.json          # Project dependencies and scripts
+├── README.md             # Project documentation
 └── docs/                 # Documentation
-    ├── PRD.md            # This document
+    ├── PRD.md            # Product Requirements Document
     └── component-docs/   # Documentation for specific components
 ```
 
@@ -80,12 +84,90 @@ blink-webflow-components/
 - Minimize use of absolute positioning
 - Group related CSS properties together
 
+### Animation Standards
+- **GSAP**: Use GSAP for all complex animations and transitions
+- **BlinkAnimations.js**: Utilize our custom animation library for consistent effects
+- Avoid mixing CSS transitions with GSAP animations to prevent conflicts
+- Prefer animating transform and opacity properties for better performance
+- Use staggered animations for sequenced element reveals
+- Keep animations subtle and purposeful - avoid excessive motion
+
 ### File Naming Conventions
 - Use kebab-case for all files and folders
 - Component folders should contain:
   - `index.html` - Component markup
   - `styles.css` - Component-specific styles
   - `README.md` - Component documentation
+
+## Animation Implementation Workflow
+
+### Animation Technology Stack
+- **GSAP**: Primary animation library for complex animations
+- **BlinkAnimations.js**: Custom animation utility library that wraps GSAP functionality
+- **CDN Delivery**: All animation libraries served via jsDelivr CDN
+
+### Animation Development Process
+1. **Build Animations in BlinkAnimations.js**:
+   - Create modular animation functions within `blink-animations.js` (located at root level)
+   - Follow the pattern: `BlinkAnimations.init[ComponentName]`
+   - Each component animation should be self-contained
+   - Use GSAP timelines for sequenced animations
+   - Current implementations include:
+     - `initHero` - For modern-hero component animations
+     - `initButtonHovers` - For button hover animations
+
+2. **Component Integration**:
+   - Components should reference the BlinkAnimations library
+   - Initialize animations using DOM selectors
+   - Example: `BlinkAnimations.initHero('.modern-hero')`
+
+3. **Animation Best Practices**:
+   - Keep initial state management within the animation function
+   - Use consistent easing and timing functions
+   - Avoid mixing CSS transitions with GSAP animations to prevent conflicts
+   - Document any animation dependencies
+
+### CDN Workflow
+1. **Host Code on GitHub**:
+   - Store `blink-animations.js` in the repository root
+   - Maintain versioning via git
+
+2. **Serve via jsDelivr**:
+   - Use jsDelivr CDN to serve the animation library
+   - Format: `https://cdn.jsdelivr.net/gh/[username]/[repo]/[file]`
+   - Example: `https://cdn.jsdelivr.net/gh/blinkpay/blinkpay-webflow-components/blink-animations.js`
+
+3. **Cache Purging Process**:
+   - After updates to animation code, purge the jsDelivr cache
+   - Use the purge tool: [jsDelivr Purge Tool](mdc:https:/www.jsdelivr.com/tools/purge)
+   - This ensures users get the latest version immediately
+   - Without purging, cache updates could take up to 7 days
+
+4. **Version Control**:
+   - For critical releases, use versioned URLs instead of @latest
+   - Example: `https://cdn.jsdelivr.net/gh/blinkpay/blinkpay-webflow-components@v1.2.0/blink-animations.js`
+   - Purge specific version URLs when needed
+
+### Animation Usage Guidelines
+1. **Initialization**:
+   - Always initialize animations after DOM content is loaded
+   - Example:
+     ```javascript
+     document.addEventListener('DOMContentLoaded', function() {
+       BlinkAnimations.initHero('.modern-hero');
+     });
+     ```
+
+2. **Avoiding Animation Issues**:
+   - When animations cause visibility problems, consider:
+     - Temporarily disabling animations during development
+     - Using debug styles to force visibility
+     - Setting initial states to visible and animating properties other than opacity
+
+3. **Performance Considerations**:
+   - Animate transform and opacity properties when possible
+   - Use staggered animations for multiple elements
+   - Be mindful of animation performance on mobile devices
 
 ## Component Development Process
 
@@ -97,6 +179,7 @@ blink-webflow-components/
 2. **Development**:
    - Build component HTML structure
    - Apply BEM-based CSS styling
+   - Add animations via BlinkAnimations library if needed
    - Test responsiveness across breakpoints
    - Document component usage
 
@@ -127,7 +210,9 @@ blink-webflow-components/
 2. **Paste HTML** from exported component
 3. **Import Assets** into Webflow asset manager
 4. **Update Asset Paths** in the imported HTML to use Webflow CDN
-5. **Add Global Styles** to Webflow project settings if needed
+5. **Add Animation Libraries** to Webflow project settings if needed:
+   - GSAP (from CDN): `https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js`
+   - BlinkAnimations (from jsDelivr): `https://cdn.jsdelivr.net/gh/blinkpay/blinkpay-webflow-components/blink-animations.js`
 6. **Test** the component in Webflow environment
 7. **Document** any adjustments needed for Webflow compatibility
 
@@ -181,6 +266,7 @@ blink-webflow-components/
 5. **Maintenance**:
    - Update component documentation when changes are made
    - Keep exported components in sync with source
+   - Purge CDN cache after animation updates to ensure latest version is delivered
 
 ## Appendix
 
@@ -189,11 +275,15 @@ blink-webflow-components/
 - [ ] CSS classes follow BEM convention
 - [ ] Assets are optimized and paths updated
 - [ ] Component is responsive
+- [ ] GSAP and BlinkAnimations libraries are included (if animations are used)
+- [ ] Animations are initialized properly
 - [ ] Accessibility standards met
 - [ ] Documentation complete
 
 ### Resources
 - [Webflow University](mdc:https:/university.webflow.com)
 - [BEM Naming Convention](mdc:http:/getbem.com/naming)
+- [GSAP Documentation](mdc:https:/greensock.com/docs)
+- [jsDelivr Documentation](mdc:https:/www.jsdelivr.com/documentation)
 - [W3C HTML Validator](mdc:https:/validator.w3.org)
 - [W3C CSS Validator](mdc:https:/jigsaw.w3.org/css-validator) 

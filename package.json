@@ -26,5 +26,16 @@
   "private": true,
   "devDependencies": {
     "live-server": "^1.2.2"
-  }
-} 
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Camrule/blinkpay-webflow-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Camrule/blinkpay-webflow-components/issues"
+  },
+  "homepage": "https://github.com/Camrule/blinkpay-webflow-components#readme"
+}
