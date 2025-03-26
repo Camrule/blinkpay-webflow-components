@@ -62,6 +62,19 @@
 
 <!-- Responsive styles - Add these to your Webflow custom code or in the head section -->
 <style>
+  .modern-hero__buttons {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .modern-hero__button {
+    transition: transform 0.3s ease;
+  }
+  
+  .modern-hero__button--secondary .modern-hero__arrow {
+    transition: transform 0.3s ease;
+  }
+  
   @media (max-width: 1200px) {
     .modern-hero__title {
       font-size: 38px !important;
@@ -147,7 +160,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     // Initialize hero animations using your custom library
     BlinkAnimations.initHero('.modern-hero');
-    BlinkAnimations.initButtonHovers('.modern-hero');
+    BlinkAnimations.initButtonHovers('.modern-hero');  // Re-enabling button animations
   });
 </script>
 
