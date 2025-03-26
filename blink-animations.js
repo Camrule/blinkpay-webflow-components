@@ -33,7 +33,37 @@ window.BlinkAnimations = {
       duration: 0.6,
       ease: 'power2.out'
     }, '-=0.3')
-    // ... other animations
+    .to(`${selector} .modern-hero__subtitle`, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.3')
+    .to(`${selector} .modern-hero__buttons`, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.3')
+    .to(`${selector} .modern-hero__stats`, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.3')
+    .to(`${selector} .modern-hero__image`, {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.5')
+    .to(`${selector} .modern-hero__badge`, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.6,
+      stagger: 0.2,
+      ease: 'back.out(1.7)'
+    }, '-=0.4');
     
     return tl;
   },
