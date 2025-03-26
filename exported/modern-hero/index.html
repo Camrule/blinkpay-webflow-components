@@ -4,8 +4,8 @@
 <!-- Note: Ensure GSAP and BlinkAnimations are loaded in your Webflow project header -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Initialize hero animations using BlinkAnimations library
-    BlinkAnimations.initHero('.modern-hero');
+    // Comment out animation initialization until we verify visibility
+    // BlinkAnimations.initHero('.modern-hero');
   });
 </script>
 
@@ -71,13 +71,24 @@
 
 <!-- Responsive styles - Add these to your Webflow custom code or in the head section -->
 <style>
+  /* Debug styles to ensure all elements are visible */
+  .modern-hero * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
   .modern-hero__buttons {
     opacity: 1;
     transform: none;
+    display: flex !important;
   }
   
   .modern-hero__button {
     /* Removed transition */
+    display: inline-flex !important;
+    opacity: 1 !important;
   }
   
   .modern-hero__button--secondary .modern-hero__arrow {
